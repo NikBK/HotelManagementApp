@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/HotelManagementApp/static/css/main.8f0b8ed8.chunk.css",
+    "main.js": "/HotelManagementApp/static/js/main.cf0d320d.chunk.js",
+    "main.js.map": "/HotelManagementApp/static/js/main.cf0d320d.chunk.js.map",
+    "runtime-main.js": "/HotelManagementApp/static/js/runtime-main.db30ddc0.js",
+    "runtime-main.js.map": "/HotelManagementApp/static/js/runtime-main.db30ddc0.js.map",
+    "static/css/2.d964bb24.chunk.css": "/HotelManagementApp/static/css/2.d964bb24.chunk.css",
+    "static/js/2.a0f284ff.chunk.js": "/HotelManagementApp/static/js/2.a0f284ff.chunk.js",
+    "static/js/2.a0f284ff.chunk.js.map": "/HotelManagementApp/static/js/2.a0f284ff.chunk.js.map",
+    "index.html": "/HotelManagementApp/index.html",
+    "static/css/2.d964bb24.chunk.css.map": "/HotelManagementApp/static/css/2.d964bb24.chunk.css.map",
+    "static/css/main.8f0b8ed8.chunk.css.map": "/HotelManagementApp/static/css/main.8f0b8ed8.chunk.css.map",
+    "static/js/2.a0f284ff.chunk.js.LICENSE.txt": "/HotelManagementApp/static/js/2.a0f284ff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db30ddc0.js",
+    "static/css/2.d964bb24.chunk.css",
+    "static/js/2.a0f284ff.chunk.js",
+    "static/css/main.8f0b8ed8.chunk.css",
+    "static/js/main.cf0d320d.chunk.js"
+  ]
+}
