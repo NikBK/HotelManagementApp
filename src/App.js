@@ -26,7 +26,7 @@ function App(){
         measurementId: "G-ESX12M3B12"
       };
       firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+      // firebase.analytics();
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       firebase.auth().onAuthStateChanged((user) => {
           if(user) {
