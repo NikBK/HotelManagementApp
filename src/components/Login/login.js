@@ -7,7 +7,7 @@ import { StyledFirebaseAuth } from 'react-firebaseui';
 export const Login = (props) => {
     const uiConfig = {
         signInFlow: 'popup',
-        signInSuccessUrl: '/',
+        signInSuccessUrl: '/hostel',
         signInOptions: [
           {
               provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,

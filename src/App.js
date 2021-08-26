@@ -42,7 +42,7 @@ function App(){
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={hostel}></Route>
+          <Route exact path="/hostel" component={hostel}></Route>
           <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
           <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
           <Route path="/selectFloor" component={hostelFloor}></Route>
