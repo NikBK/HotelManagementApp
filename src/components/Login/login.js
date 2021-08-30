@@ -4,7 +4,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { StyledFirebaseAuth } from 'react-firebaseui';
 
-export const Login = (props) => {
+export const Login = () => {
     const uiConfig = {
         signInFlow: 'popup',
         signInSuccessUrl: '/hostel',

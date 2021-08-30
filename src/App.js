@@ -7,7 +7,7 @@ import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import hostel from "./components/hostel";
 import { GirlshostelNumber, BoyshostelNumber } from './components/hostelNumber';
 import { hostelFloor } from './components/hostelFloor';
-import { bookingCompleted } from './components/bookingCompleted';
+import { BookingCompleted } from './components/bookingCompleted';
 import { Login } from './components/Login/login';
 import Home from './components/home';
 
@@ -26,7 +26,7 @@ function App(){
         measurementId: "G-ESX12M3B12"
       };
       firebase.initializeApp(firebaseConfig);
-      // firebase.analytics();
+      firebase.analytics();
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       firebase.auth().onAuthStateChanged((user) => {
           if(user) {
@@ -39,18 +39,25 @@ function App(){
   }, []);
 
   if (loggedIn) {
+    if(localStorage.getItem('roomNumber') != null){
+      console.log('You have already booked a room');
+      return <BookingCompleted />
+    }
+    // console.log('path');
     return (
       <Router>
         <Switch>
-          <Route exact path="/hostel" component={hostel}></Route>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/hostel" component={hostel}>{console.log('hostel')}</Route>
           <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
           <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
           <Route path="/selectFloor" component={hostelFloor}></Route>
-          <Route path="/BookingCompleted" component={bookingCompleted}></Route>
+          <Route path="/BookingCompleted" component={BookingCompleted}></Route>
         </Switch>
       </Router>
     );
   }
+  console.log('not logged in');
   return (
     <div className='App'>
         <Router>
