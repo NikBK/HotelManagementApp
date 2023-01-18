@@ -3,18 +3,19 @@ import React, { useState, useEffect } from "react";
 import "firebase/auth";
 import firebase from "firebase/app";
 
-import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
-import hostel from "./components/hostel";
-import { GirlshostelNumber, BoyshostelNumber } from './components/hostelNumber';
-import { hostelFloor } from './components/hostelFloor';
-import { bookingCompleted } from './components/bookingCompleted';
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import hostel from "./components/hostel/index";
+import { GirlshostelNumber, BoyshostelNumber } from './components/hostelNumber/index';
+import { hostelFloor } from './components/hostelFloor/index';
+import { bookingCompleted } from './components/bookingCompleted/index';
 import { Login } from './components/Login/login';
-import Home from './components/home';
+import Home from './components/home/index';
 
-function App(){
+function App() {
   const [loggedIn, setLoggedIn] = useState(null);
+  const [showPopUp, setShowPopUp] = useState(true);
 
-  useEffect(() =>{
+  useEffect(() => {
     if (!firebase.apps.length) {
       var firebaseConfig = {
         apiKey: "AIzaSyC4K7SlEvr4PeqQz1_RJwhEsRaY4myuqbE",
@@ -29,11 +30,11 @@ function App(){
       // firebase.analytics();
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       firebase.auth().onAuthStateChanged((user) => {
-          if(user) {
-              setLoggedIn(true)
-          } else {
-              setLoggedIn(false)
-          }
+        if (user) {
+          setLoggedIn(true)
+        } else {
+          setLoggedIn(false)
+        }
       })
     }
   }, []);
@@ -53,12 +54,24 @@ function App(){
   }
   return (
     <div className='App'>
-        <Router>
-            <Switch>
-                <Route exact path="/" component={Home}></Route>
-                <Route path='/login' component={Login}></Route>
-            </Switch>
-        </Router>
+      {
+        showPopUp
+        &&
+        <div className='netlify-popup-msg'>
+          <h2>Note</h2>
+          <div>
+            <div>This application works fine in local but has issues with Netlify hosting.</div>
+            <div>Hence some features might not work as expected.</div>
+          </div>
+          <button className='popup-btn' onClick={() => setShowPopUp(false)}>OK</button>
+        </div>
+      }
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path='/login' component={Login}></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
