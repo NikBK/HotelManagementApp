@@ -12,7 +12,7 @@ import { Login } from './components/Login/login';
 import Home from './components/home/index';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [showPopUp, setShowPopUp] = useState(true);
 
   useEffect(() => {
