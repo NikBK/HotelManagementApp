@@ -70,6 +70,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route path='/login' component={Login}></Route>
+          <Route exact path="/hostel" component={hostel}></Route>
+          <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
+          <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
+          <Route path="/selectFloor" component={hostelFloor}></Route>
+          <Route path="/BookingCompleted" component={bookingCompleted}></Route>
         </Switch>
       </Router>
     </div>
