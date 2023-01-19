@@ -39,19 +39,19 @@ function App() {
     }
   }, []);
 
-  // if (loggedIn) {
-  //   return (
-  //     <Router>
-  //       <Switch>
-  //         <Route exact path="/hostel" component={hostel}></Route>
-  //         <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
-  //         <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
-  //         <Route path="/selectFloor" component={hostelFloor}></Route>
-  //         <Route path="/BookingCompleted" component={bookingCompleted}></Route>
-  //       </Switch>
-  //     </Router>
-  //   );
-  // }
+  if (loggedIn) {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/hostel" component={hostel}></Route>
+          <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
+          <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
+          <Route path="/selectFloor" component={hostelFloor}></Route>
+          <Route path="/BookingCompleted" component={bookingCompleted}></Route>
+        </Switch>
+      </Router>
+    );
+  }
   return (
     <div className='App'>
       {
