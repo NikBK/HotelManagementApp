@@ -41,16 +41,15 @@ export const GirlshostelNumber = () => {
 export const HostelNumber = (props) => {
     return (
         <>
-            <Link to="selectFloor" style={{ textDecoration:"none" }}>
+            <Link to="selectFloor" style={{ textDecoration: "none" }}>
                 <div onClick={e => saveMe(props.number)} className="button-number-container">
-                        <button style={{ color: "#FFF" }}>{props.number}</button>
+                    <button style={{ color: "#FFF" }}>{props.number}</button>
                 </div>
             </Link>
         </>
     );
 };
 
-function saveMe(building){
+function saveMe(building) {
     localStorage.setItem('building', JSON.stringify(building));
-    console.log("I chose building number", building);
 }

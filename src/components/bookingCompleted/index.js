@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../../src/App.css";
 import firebase from "firebase";
 
-export const bookingCompleted = () => {
+export const BookingCompleted = ({ setLoggedIn }) => {
     return (
         <>
             <div className="App-header">
@@ -21,9 +21,9 @@ export const bookingCompleted = () => {
                             <td> <span>{JSON.parse(localStorage.getItem('roomNumber'))}</span></td>
                         </tr>
                     </tbody>
-                    <div style={{ justifyContent:"center", textAlign: "center"}}>
+                    <div style={{ justifyContent: "center", textAlign: "center" }}>
                         <Link to="/">
-                            <button onClick={logout} className="logout-btn">Logout</button>
+                            <button onClick={() => logout(setLoggedIn)} className="logout-btn">Logout</button>
                         </Link>
                     </div>
                 </div>
@@ -32,6 +32,7 @@ export const bookingCompleted = () => {
     );
 };
 
-export const logout = () => {
+export const logout = (setLoggedIn) => {
+    setLoggedIn(false);
     firebase.auth().signOut();
 }

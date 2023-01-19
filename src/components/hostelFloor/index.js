@@ -36,18 +36,17 @@ export const hostelFloor = () => {
 export const RoomNumber = (props) => {
     return (
         <>
-            <Link to="BookingCompleted" style={{ textDecoration:"none" }}>
+            <Link to="BookingCompleted" style={{ textDecoration: "none" }}>
                 <div onClick={e => saveMe(props.number)} className="button-number-container">
-                        <button style={{ color: "#FFF" }}>{props.number}</button>
+                    <button style={{ color: "#FFF" }}>{props.number}</button>
                 </div>
             </Link>
         </>
     );
 };
 
-function saveMe(roomNumber){
+function saveMe(roomNumber) {
     let floor = document.getElementById('mySelect').value;
     localStorage.setItem('floor', JSON.stringify(floor));
     localStorage.setItem('roomNumber', JSON.stringify(roomNumber));
-    console.log("I chose ", floor, "with room Number", roomNumber);
 }

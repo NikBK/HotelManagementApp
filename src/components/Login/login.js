@@ -7,28 +7,28 @@ import { StyledFirebaseAuth } from 'react-firebaseui';
 export const Login = (props) => {
     const uiConfig = {
         signInFlow: 'popup',
-        signInSuccessUrl: '/hostel',
+        signInSuccessUrl: '/',
         signInOptions: [
-          {
-              provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-              requireDisplayName: true
-          },
-          {
-              provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
-          },
-          {
-              provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID
-          }
+            {
+                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                requireDisplayName: true
+            },
+            {
+                provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
+            },
+            {
+                provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            }
         ]
     }
     return (
         <div className='login-container'>
-              <h2>Login to use booking app</h2>
-              <br />
-              <StyledFirebaseAuth 
-                  uiConfig={uiConfig}
-                  firebaseAuth={firebase.auth()}
-              />
-          </div>
-      )
-  }
+            <h2>Login to use booking app</h2>
+            <br />
+            <StyledFirebaseAuth
+                uiConfig={uiConfig}
+                firebaseAuth={firebase.auth()}
+            />
+        </div>
+    )
+}

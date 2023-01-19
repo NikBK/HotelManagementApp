@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import "firebase/auth";
 import firebase from "firebase/app";
 
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
 import hostel from "./components/hostel/index";
 import { GirlshostelNumber, BoyshostelNumber } from './components/hostelNumber/index';
 import { hostelFloor } from './components/hostelFloor/index';
-import { bookingCompleted } from './components/bookingCompleted/index';
+import { BookingCompleted } from './components/bookingCompleted/index';
 import { Login } from './components/Login/login';
 import Home from './components/home/index';
 
@@ -31,23 +31,34 @@ function App() {
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          setLoggedIn(true)
+          setLoggedIn(true);
+          localStorage.setItem('user', true);
         } else {
-          setLoggedIn(false)
+          setLoggedIn(false);
+          localStorage.removeItem('user');
         }
       })
     }
   }, []);
 
+  useEffect(() => {
+    setLoggedIn(JSON.parse(localStorage.getItem('user')) ? true : false);
+  }, [])
+
   if (loggedIn) {
     return (
       <Router>
         <Switch>
-          <Route exact path="/hostel" component={hostel}></Route>
+          <Route exact path="/">
+            <Redirect to="/hostel" />
+          </Route>
+          <Route path="/hostel" component={hostel}></Route>
           <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
           <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
           <Route path="/selectFloor" component={hostelFloor}></Route>
-          <Route path="/BookingCompleted" component={bookingCompleted}></Route>
+          <Route path="/BookingCompleted">
+            <BookingCompleted setLoggedIn={setLoggedIn} />
+          </Route>
         </Switch>
       </Router>
     );
@@ -70,11 +81,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route path='/login' component={Login}></Route>
-          <Route exact path="/hostel" component={hostel}></Route>
-          <Route path="/selectGirlsHostel" component={GirlshostelNumber}></Route>
-          <Route path="/selectBoysHostel" component={BoyshostelNumber}></Route>
-          <Route path="/selectFloor" component={hostelFloor}></Route>
-          <Route path="/BookingCompleted" component={bookingCompleted}></Route>
         </Switch>
       </Router>
     </div>
