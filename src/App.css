@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -17,45 +19,57 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  right: -250px;
   background-color: white;
-  color: rgb(132, 36, 221);
-  height: 80vh;
-  width: 80vw;
-  font-size: 24px;
+  color: green;
+  height: 50px;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 0 20px #000;
+  font-size: 16px;
   z-index: 2;
-  animation: come .5s linear;
+  animation: slide 7s linear;
 }
 
-@keyframes come {
-  0% {
-    top: -50%;
+@keyframes slide {
+  20% {
+    right: 10px;
   }
 
   100% {
-    top: 50%;
+    right: 10px;
   }
 }
 
-.netlify-popup-msg>h2 {
-  color: black;
+.netlify-popup-msg::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: red;
+  animation: reduceTime 5s linear forwards;
+  animation-delay: 2s;
 }
 
-.popup-btn {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 20px 10px;
-  padding: 10px;
-  background-color: #10b0b6;
-  color: white;
-  border: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  cursor: pointer;
-  border-radius: 5px;
+@keyframes reduceTime {
+  100% {
+    width: 0%;
+  }
+}
+
+
+.netlify-popup-msg>div {
+  padding: 0 0 8px;
+}
+
+.netlify-popup-msg>h3 {
+  color: #e52c2c;
+  margin: 0;
 }
 
 .App-header {

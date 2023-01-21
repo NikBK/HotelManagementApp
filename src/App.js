@@ -65,18 +65,12 @@ function App() {
   }
   return (
     <div className='App'>
-      {
-        showPopUp
-        &&
-        <div className='netlify-popup-msg'>
-          <h2>Note</h2>
-          <div>
-            <div>This application works fine in local but has issues with Netlify hosting.</div>
-            <div>Hence some features might not work as expected.</div>
-          </div>
-          <button className='popup-btn' onClick={() => setShowPopUp(false)}>OK</button>
+      <div className='netlify-popup-msg'>
+        <h3>Note</h3>
+        <div>
+          <div>Netlify might have issues</div>
         </div>
-      }
+      </div>
       <Router>
         <Switch>
           <Route exact path="/" component={Home}></Route>
